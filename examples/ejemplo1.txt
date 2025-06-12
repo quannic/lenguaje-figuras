@@ -1,0 +1,4 @@
+
+color("blue")
+circle(0, 0, 50)
+rectangle(-100, 100, 200, 100)

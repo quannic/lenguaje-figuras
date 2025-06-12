@@ -1,0 +1,7 @@
+color("red")
+let ancho = 120
+let alto = 80
+move(-100, 100)
+rectangle(-100, 100, ancho, alto)
+area(rectangle, ancho, alto)
+perimetro(rectangle, ancho, alto)
