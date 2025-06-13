@@ -2,7 +2,7 @@
 from parser import interpretar_linea
 
 def main():
-    with open("examples/ejemplo1.txt") as archivo:
+    with open("examples/ejemplo4.txt") as archivo:
         for linea in archivo:
             interpretar_linea(linea.strip())
 

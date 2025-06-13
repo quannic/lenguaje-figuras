@@ -3,10 +3,10 @@ let altura = 50
 let radio = 20
 
 color("orange")
-rectangle(-50, -50, base, altura)
-area(rectangle, base, altura)
+rectangle(-50, -25, 100, 50)
+area("rectangle", 100, 50)
 
-move(200, 0)
 color("purple")
-circle(200, 0, radio)
-perimetro(circle, radio)
+circle(0, 0, 50)
+perimetro("circle", radio)
+

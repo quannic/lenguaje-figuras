@@ -82,12 +82,17 @@ def interpretar_linea(linea):
 
     # Calcula y muestra el área de una figura: area(circle, 40)
     elif comando == "area":
-        figura = tokens[2]
-        valores = [obtener_valor(v) for v in tokens[3:-1]]
+    # area(rectangle, 120, 80)
+        args = [t for t in tokens if t not in ["area", "(", ")", ","]]
+        figura = args[0]
+        valores = [obtener_valor(v) for v in args[1:]]
         print("Área:", calcular_area(figura, *valores))
+
 
     # Calcula y muestra el perímetro de una figura
     elif comando == "perimetro":
-        figura = tokens[2]
-        valores = [obtener_valor(v) for v in tokens[3:-1]]
+        args = [t for t in tokens if t not in ["perimetro", "(", ")", ","]]
+        figura = args[0]
+        valores = [obtener_valor(v) for v in args[1:]]
         print("Perímetro:", calcular_perimetro(figura, *valores))
+

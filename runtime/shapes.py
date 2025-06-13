@@ -4,6 +4,8 @@ import math
 
 # Inicializa la pantalla y la tortuga (pincel)
 pantalla = turtle.Screen()
+pantalla.title("Dibujo de Figuras Geométricas")
+pantalla.setup
 pantalla.bgcolor("white")
 pincel = turtle.Turtle()
 pincel.speed(0)
