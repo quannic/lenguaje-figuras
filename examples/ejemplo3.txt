@@ -1,10 +1,2 @@
-color("green")
-let r = 25
-circle(0, 0, r)
-
-color("yellow")
-rotate(90)
-move(100, -100)
-let w = 60
-let h = 40
-rectangle(100, -100, w, h)
+area circle 40
+perimetro rectangle 100 50

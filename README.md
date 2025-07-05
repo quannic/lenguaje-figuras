@@ -1,24 +1,34 @@
+# Lenguaje Figuras
 
-# Tu Lenguaje de Figuras 2D
+Este proyecto es un lenguaje de programación simple para crear figuras geométricas usando Python y Turtle.
 
-Este es un lenguaje sencillo para crear figuras 2D usando comandos como:
+## Estructura del Proyecto
 
-# Sintaxis
+- `lexer.py`: Analizador léxico.
+- `parser.py`: Analizador sintáctico.
+- `interpreter.py`: Interpreta los comandos.
+- `runtime/shapes.py`: Funciones gráficas usando Turtle.
+- `examples/`: Archivos de prueba con comandos.
 
-```
-color("red")
-circle(100, 100, 50)
-rectangle(0, 0, 100, 50)
-```
+## Comandos Soportados
 
-# Estructura
+- `draw_circle(x, y, r)`
+- `draw_square(x, y, side)`
+- `draw_rectangle(x1, y1, x2, y2)`
+- `rotate(angle)`
+- `scale(factor)`
 
-**Lexer**: Divide el código en tokens.
-**Parser**: Interpreta los tokens y ejecuta funciones.
-**Runtime**: Dibuja las figuras con `turtle`.
-
-# Ejecución
+## Cómo Ejecutar
 
 ```bash
-python interpreter.py
+python interpreter.py examples/ejemplo1.txt
 ```
+
+Al final se abrirá una ventana Turtle mostrando la figura.
+
+## Autor
+Joel Seura
+Crispy lang
+Fundamentos del lenguaje de la programación
+Julio 2025
+
