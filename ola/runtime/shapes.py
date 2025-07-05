@@ -2,18 +2,8 @@
 import turtle
 import math
 
-<<<<<<< HEAD
 t = turtle.Turtle()
 t.speed(1)
-=======
-# Inicializa la pantalla y la tortuga (pincel)
-pantalla = turtle.Screen()
-pantalla.title("Dibujo de Figuras Geométricas")
-pantalla.setup
-pantalla.bgcolor("white")
-pincel = turtle.Turtle()
-pincel.speed(0)
->>>>>>> d19368411d2fcb8c2a3e13783d5cca11bd9701b7
 
 def set_color(color):
     t.color(color)

@@ -1,0 +1,9 @@
+color "blue"
+circle 0 0 50
+rotate 45
+rectangle 0 0 80 40
+triangle 0 0 60 90
+line 0 0 100 100
+perimetro triangle 60 90
+area circle 50
+perimetro rectangle 80 40

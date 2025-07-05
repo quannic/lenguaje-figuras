@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 area circle 40
 perimetro rectangle 100 50
+=======
+color("green")
+let r = 25
+circle(0, 0, 25)
+
+color("red")
+rotate(90)
+let w = 60
+let h = 40
+rectangle(50, -50, 60, 40)
+>>>>>>> d19368411d2fcb8c2a3e13783d5cca11bd9701b7

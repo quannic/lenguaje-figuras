@@ -1,0 +1,2 @@
+area circle 40
+perimetro rectangle 100 50

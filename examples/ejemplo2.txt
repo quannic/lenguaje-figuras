@@ -1,3 +1,18 @@
+<<<<<<< HEAD
 color("red")
 clear
 circle 50 50 30
+=======
+let base = 100
+let altura = 50
+let radio = 20
+
+color("orange")
+rectangle(-50, -25, 100, 50)
+area("rectangle", 100, 50)
+
+color("purple")
+circle(0, 0, 50)
+perimetro("circle", radio)
+
+>>>>>>> d19368411d2fcb8c2a3e13783d5cca11bd9701b7
