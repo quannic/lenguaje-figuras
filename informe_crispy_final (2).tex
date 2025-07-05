@@ -1,0 +1,176 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+
+\title{\textbf{Documentación del Lenguaje Crispy}\\[4cm] \\ Diseño e Implementación\\[4cm]}
+\author{Joel Seura\\[4cm]}
+\date{FUNDAMENTOS DE LENGUAJES DE PROGRAMACIÓN\\\\Julio 2025}
+
+\definecolor{lightgray}{gray}{0.95}
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  language=Python,
+  showstringspaces=false
+}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+Este proyecto consiste en el desarrollo de un Lenguaje de Dominio Específico (DSL) llamado \textbf{Crispy}. Este lenguaje permite a los usuarios definir, dibujar y manipular figuras geométricas mediante comandos simples. Además, permite calcular propiedades como área y perímetro, todo visualizado mediante la biblioteca \texttt{turtle} de Python.
+
+\section{Objetivo del Proyecto}
+
+El objetivo de Crispy es ofrecer un lenguaje de dominio específico (DSL) con fines educativos, diseñado para facilitar la comprensión de los fundamentos de los lenguajes de programación, como el análisis léxico, sintáctico y semántico. Además, busca reforzar conceptos de geometría de forma práctica mediante la creación, manipulación y visualización de figuras geométricas. Así, Crispy integra teoría y práctica, fomentando el aprendizaje interactivo y didáctico en estudiantes de programación y matemáticas.
+
+\section{Estructura del Proyecto}
+
+El proyecto se divide en módulos:
+\begin{itemize}
+    \item \textbf{interpreter.py}: Carga y ejecuta el archivo de entrada.
+    \item \textbf{lexer.py}: Realiza el análisis léxico (tokeniza).
+    \item \textbf{parser.py}: Interpreta tokens y llama funciones.
+    \item \textbf{runtime/shapes.py}: Contiene funciones para dibujar y calcular.
+    \item \textbf{examples/}: Contiene ejemplos de comandos.
+\end{itemize}
+
+\section{Flujo de Ejecución}
+
+\begin{enumerate}
+    \item El intérprete abre un archivo con comandos.
+    \item Cada línea se tokeniza.
+    \item Los tokens se interpretan y ejecutan.
+    \item Se dibujan figuras o se imprimen cálculos en consola.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.5\linewidth]{image.png}
+        \label{fig:enter-label}
+    \end{figure}
+
+\section{Comandos Soportados}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Comando} & \textbf{Descripción} \\
+\hline
+circle(x, y, r) & Dibuja un círculo en (x, y) con radio r. \\
+rectangle(x, y, w, h) & Dibuja un rectángulo en (x, y) con ancho w y alto h. \\
+triangle(x, y, base, height) & Dibuja un triángulo isósceles. \\
+line(x1, y1, x2, y2) & Dibuja una línea entre dos puntos. \\
+color("color") & Cambia el color del lápiz. \\
+move(x, y) & Mueve la tortuga sin trazar. \\
+rotate(grados) & Rota la tortuga. \\
+area(figura, params) & Calcula el área. \\
+perimetro(figura, params) & Calcula el perímetro. \\
+clear() & Borra la pantalla. \\
+\hline
+\end{tabular}
+
+\section{Conceptos Aplicados}
+
+Este proyecto integra varios conceptos fundamentales vistos en clase para el desarrollo de lenguajes de programación:
+
+\begin{enumerate}
+  \item \textbf{Estructura léxica:} El lenguaje Crispy define palabras clave como \texttt{circle}, \texttt{rectangle}, \texttt{triangle}, operadores y parámetros numéricos, siguiendo una estructura clara y consistente.
+
+  \item \textbf{Gramáticas de Libre Contexto (BNF):} La sintaxis se puede definir formalmente en BNF. Por ejemplo:
+  
+  \begin{verbatim}
+  <comando> ::= "circle" "(" <num> "," <num> "," <num> ")"
+              | "rectangle" "(" <num> "," <num> "," <num> "," <num> ")"
+              | "triangle" "(" <num> "," <num> "," <num> "," <num> ")"
+              | "line" "(" <num> "," <num> "," <num> "," <num> ")"
+              | "color" "(" <cadena> ")"
+              | "move" "(" <num> "," <num> ")"
+              | "rotate" "(" <num> ")"
+  \end{verbatim}
+
+  \item \textbf{EBNF y Diagrama Sintáctico:} Se pueden representar los comandos usando EBNF para mayor legibilidad. Por ejemplo:
+  \begin{verbatim}
+  comando = figura | accion ;
+  figura  = "circle" "(" num "," num "," num ")"
+          | "rectangle" "(" num "," num "," num "," num ")"
+          | "triangle" "(" num "," num "," num "," num ")" ;
+  accion  = "color" "(" cadena ")" | "move" "(" num "," num ")" ;
+  \end{verbatim}
+
+  Además, se puede generar un diagrama sintáctico para visualizar la relación entre los tokens.
+
+  \item \textbf{Árbol de análisis de sintaxis abstracta (AST):} Cada instrucción se interpreta generando un árbol sintáctico. Por ejemplo:
+  
+  \begin{verbatim}
+          circle
+         /   |   \
+       x=0  y=0  r=50
+  \end{verbatim}
+
+  \item \textbf{Técnicas de análisis y herramientas:} El intérprete aplica análisis léxico y sintáctico mediante funciones personalizadas en Python, simulando un lexer y parser básicos.
+
+  \item \textbf{Atributos, ligaduras y funciones semánticas:} Cada nodo del árbol tiene atributos (coordenadas, dimensiones). Las funciones semánticas calculan propiedades como área y perímetro.
+
+  \item \textbf{Declaraciones, bloques y alcance:} El comando \texttt{let} permite declarar variables y guardarlas en la tabla de símbolos. El alcance es global para simplificar.
+
+  \item \textbf{Tabla de símbolos:} El proyecto usa una tabla de símbolos (diccionario) para almacenar y recuperar valores de variables definidos por el usuario.
+
+  \item \textbf{Resolución y sobrecarga de nombres:} El intérprete resuelve nombres de variables a valores usando la tabla de símbolos. No hay sobrecarga en este diseño, pero se muestra la idea de resolución de nombres.
+\end{enumerate}
+
+Estos conceptos se relacionan directamente entre la teoría de compiladores y la práctica de construir un lenguaje de dominio específico.
+
+\section{Justificación del Diseño}
+
+El diseño de Crispy se basa en crear un lenguaje de dominio específico (DSL) que permita aprender y aplicar conceptos de compiladores de forma práctica y visual. Se eligió Python como base por su simplicidad y por la facilidad de integrar Turtle para representar figuras geométricas en tiempo real.
+
+Crispy utiliza una gramática libre de contexto definida en BNF y EBNF, una estructura léxica clara y una tabla de símbolos para gestionar variables, reforzando nociones de alcance y resolución de nombres. Cada módulo (lexer, parser, intérprete) refleja técnicas y herramientas vistas en clase, aplicando atributos y funciones semánticas para realizar cálculos y transformaciones.
+
+\section{Ejemplos}
+\begin{verbatim}
+circle(0, 0, 50)
+rectangle(-100, 100, 200, 100)
+triangle(-50, -50, 100, 100)
+area(circle, 40)
+perimetro(rectangle, 100, 50)
+\end{verbatim}
+
+\begin{figure}
+            \centering
+            \includegraphics[width=1\linewidth]{image2.png}
+            \caption{Ejemplo}
+            \label{fig:enter-label}
+        \end{figure}
+\section{Conclusiones}
+
+Este proyecto demuestra cómo la teoría de lenguajes y compiladores puede llevarse a la práctica mediante un DSL funcional y creativo. Crispy permite al usuario dibujar figuras, realizar cálculos y manipular atributos de forma sencilla, integrando conceptos clave como árboles de análisis y gramáticas.
+
+La estructura modular del intérprete y el uso de una tabla de símbolos facilitaron la resolución de nombres, el manejo de variables y la ejecución ordenada de cada instrucción. Esto refuerza la importancia de comprender las etapas léxica, sintáctica y semántica para construir lenguajes consistentes.
+
+En general, Crispy es una herramienta educativa que combina claridad, funcionalidad y originalidad. Su desarrollo no solo afianza la teoría aprendida en clase, sino que también abre posibilidades para expandir el lenguaje con nuevas figuras, estructuras de control y una interfaz más amigable en el futuro.
+
+\textbf{Posibles mejoras:}
+\begin{itemize}
+    \item Soporte para más figuras.
+    \item Guardar imágenes generadas.
+    \item Crear una interfaz gráfica de usuario.
+    \item Añadir estructuras de control básicas.
+\end{itemize}
+
+\end{document}
