@@ -1,0 +1,3 @@
+color("red")
+clear
+circle 50 50 30
